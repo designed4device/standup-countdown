@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="StandupCountdown" id="1Xt-HY-uBw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="StandupCountdown" systemMenu="apple" id="uQy-DD-JDr">
+                                    <items>
+                                        <menuItem title="About StandupCountdown" id="5kV-Vb-QxS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Quit StandupCountdown" keyEquivalent="q" id="4sb-4s-VLi">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="StandupCountdown" customModuleProvider="target"/>
+                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="0.0"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="R2V-B0-nI4">
+            <objects>
+                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="i87-7d-eAf" kind="relationship" relationship="window.shadowedContentViewController" id="EPu-mO-isP"/>
+                    </connections>
+                </windowController>
+                <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aq6-0M-Tpu">
+            <objects>
+                <viewController id="i87-7d-eAf" customClass="ViewController" customModule="StandupCountdown" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="rhW-Io-IhH">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="167"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvj-HE-4Fy" userLabel="Stack View Gong">
+                                <rect key="frame" x="50" y="45" width="351" height="78"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MER-HF-Jnn">
+                                        <rect key="frame" x="-2" y="0.0" width="355" height="78"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Hit the gong!" id="F7L-2v-7fI">
+                                            <font key="font" metaFont="system" size="65"/>
+                                            <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                                <accessibility identifier="GongStackView"/>
+                            </stackView>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Alt-h4-CxA" userLabel="Stack View Timer">
+                                <rect key="frame" x="60" y="20" width="331" height="127"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yjT-4u-Mtw">
+                                        <rect key="frame" x="-2" y="83" width="335" height="44"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="center" title="Next standup starts in" id="EVE-UX-YRX">
+                                            <font key="font" metaFont="system" size="36"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HJL-YE-PVQ">
+                                        <rect key="frame" x="-2" y="0.0" width="335" height="75"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="00:00:00" id="iVV-K2-ly7">
+                                            <font key="font" metaFont="system" size="63"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="HJL-YE-PVQ" firstAttribute="centerX" secondItem="Alt-h4-CxA" secondAttribute="centerX" id="1wX-q4-Iza"/>
+                                    <constraint firstItem="yjT-4u-Mtw" firstAttribute="centerX" secondItem="Alt-h4-CxA" secondAttribute="centerX" id="Cn3-lm-sAe"/>
+                                    <constraint firstItem="yjT-4u-Mtw" firstAttribute="centerX" secondItem="Alt-h4-CxA" secondAttribute="centerX" id="hZS-HT-LuC"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="dvj-HE-4Fy" firstAttribute="centerX" secondItem="rhW-Io-IhH" secondAttribute="centerX" id="UgH-iI-GMG"/>
+                            <constraint firstItem="Alt-h4-CxA" firstAttribute="centerX" secondItem="rhW-Io-IhH" secondAttribute="centerX" id="XiY-yS-3to"/>
+                            <constraint firstItem="dvj-HE-4Fy" firstAttribute="centerY" secondItem="rhW-Io-IhH" secondAttribute="centerY" id="gMl-qT-T16"/>
+                            <constraint firstItem="Alt-h4-CxA" firstAttribute="centerY" secondItem="rhW-Io-IhH" secondAttribute="centerY" id="jB3-ED-Bmc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gongStackView" destination="dvj-HE-4Fy" id="2yh-Ov-t8N"/>
+                        <outlet property="timerLabel" destination="HJL-YE-PVQ" id="egq-Eg-QSU"/>
+                        <outlet property="timerStackView" destination="Alt-h4-CxA" id="jXh-Uv-6vO"/>
+                    </connections>
+                </viewController>
+                <customObject id="zL4-yk-kQc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="651.5"/>
+        </scene>
+    </scenes>
+</document>
