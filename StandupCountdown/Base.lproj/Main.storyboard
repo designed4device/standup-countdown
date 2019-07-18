@@ -138,8 +138,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="countdownTextField" destination="HJL-YE-PVQ" id="egq-Eg-QSU"/>
                         <outlet property="gongStackView" destination="dvj-HE-4Fy" id="2yh-Ov-t8N"/>
-                        <outlet property="timerLabel" destination="HJL-YE-PVQ" id="egq-Eg-QSU"/>
                         <outlet property="timerStackView" destination="Alt-h4-CxA" id="jXh-Uv-6vO"/>
                     </connections>
                 </viewController>
