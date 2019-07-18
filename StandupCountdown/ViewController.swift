@@ -21,9 +21,6 @@ class ViewController: NSViewController {
 
         // Do any additional setup after loading the view.
         
-        //keep window on top
-        NSApplication.shared.windows.first?.level = NSWindow.Level(rawValue: 1)
-        
         initCountdown()
         initGongReminder()
     }
