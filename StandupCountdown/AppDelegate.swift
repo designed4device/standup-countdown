@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //hide the application after standup starts
         let hideTimer = Timer(
-            fire: Date.next(hour: 8, minute: 6, second: 30),
+            fire: Date.next(hour: 8, minute: 6, second: 10),
             interval: 60 * 60 * 24,
             repeats: true,
             block: {_ in
@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //unhide the application after standup ends
         let unhideTimer = Timer(
-            fire: Date.next(hour: 8, minute: 20),
+            fire: Date.next(hour: 8, minute: 16),
             interval: 60 * 60 * 24,
             repeats: true,
             block: {_ in

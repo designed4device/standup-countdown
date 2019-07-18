@@ -56,7 +56,7 @@ class ViewController: NSViewController {
                        interval: 60 * 60 * 24,
                        repeats: true,
                        block: {_ in
-                        self.countdownTimer.pause(seconds: 30, resume: self.initCountdown)
+                        self.countdownTimer.pause(seconds: 15, resume: self.initCountdown)
                         self.gongStackView.isHidden = false
                         self.timerStackView.isHidden = true
                         NSSpeechSynthesizer().startSpeaking("Hit the gong!")
