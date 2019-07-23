@@ -53,6 +53,9 @@ class ViewController: NSViewController {
     @objc private func gongReminder() {
         self.gongStackView.isHidden = false
         self.timerStackView.isHidden = true
-        NSSpeechSynthesizer().startSpeaking("Hit the gong!")
+        
+        let synth = NSSpeechSynthesizer()
+        synth.setVoice(NSSpeechSynthesizer.availableVoices.randomElement())
+        synth.startSpeaking("Hit the gong!")
     }
 }
