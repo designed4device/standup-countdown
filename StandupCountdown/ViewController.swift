@@ -20,9 +20,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         initCountdown()
-        initGongReminder()
     }
 
     override var representedObject: Any? {
@@ -41,23 +39,20 @@ class ViewController: NSViewController {
                 let hours = String(totalSeconds / 60 / 60)
                 
                 self.countdownTextField?.stringValue = "\(hours.pad()):\(minutes.pad()):\(seconds.pad())"
-                
                 self.gongStackView.isHidden = true
                 self.timerStackView.isHidden = false
+                
+                if (seconds == "0" && minutes == "0" && hours == "0") {
+                    self.countdownTimer.pause(seconds: 10, resume: self.initCountdown)
+                    _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.gongReminder), userInfo: nil, repeats: false)
+                }
             }
         })
     }
     
-    private func initGongReminder() {
-        let timer = Timer.init(fire: Date.next(hour: 8, minute: 6),
-                       interval: 60 * 60 * 24,
-                       repeats: true,
-                       block: {_ in
-                        self.countdownTimer.pause(seconds: 15, resume: self.initCountdown)
-                        self.gongStackView.isHidden = false
-                        self.timerStackView.isHidden = true
-                        NSSpeechSynthesizer().startSpeaking("Hit the gong!")
-        })
-        RunLoop.current.add(timer, forMode: .default)
+    @objc private func gongReminder() {
+        self.gongStackView.isHidden = false
+        self.timerStackView.isHidden = true
+        NSSpeechSynthesizer().startSpeaking("Hit the gong!")
     }
 }
