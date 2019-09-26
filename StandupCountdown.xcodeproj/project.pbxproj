@@ -16,6 +16,7 @@
 		D2B30EEF22DEA2A400280FC0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B30EEE22DEA2A400280FC0 /* StringExtension.swift */; };
 		D2B30EF122DEA4F900280FC0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B30EF022DEA4F900280FC0 /* DateExtension.swift */; };
 		D2B30F2B22DEBCAB00280FC0 /* TimerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B30F2A22DEBCAB00280FC0 /* TimerExtension.swift */; };
+		D2F5FAF1233C64510082A397 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5FAF0233C64510082A397 /* PrefsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		D2B30EEE22DEA2A400280FC0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D2B30EF022DEA4F900280FC0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		D2B30F2A22DEBCAB00280FC0 /* TimerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerExtension.swift; sourceTree = "<group>"; };
+		D2F5FAF0233C64510082A397 /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				D2B30EEE22DEA2A400280FC0 /* StringExtension.swift */,
 				D2B30EF022DEA4F900280FC0 /* DateExtension.swift */,
 				D2B30F2A22DEBCAB00280FC0 /* TimerExtension.swift */,
+				D2F5FAF0233C64510082A397 /* PrefsViewController.swift */,
 			);
 			path = StandupCountdown;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B30EC422DE920500280FC0 /* ViewController.swift in Sources */,
+				D2F5FAF1233C64510082A397 /* PrefsViewController.swift in Sources */,
 				D2B30EF122DEA4F900280FC0 /* DateExtension.swift in Sources */,
 				D2B30F2B22DEBCAB00280FC0 /* TimerExtension.swift in Sources */,
 				D2B30EC222DE920500280FC0 /* AppDelegate.swift in Sources */,
