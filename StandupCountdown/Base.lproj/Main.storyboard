@@ -97,42 +97,64 @@
             <objects>
                 <viewController id="exh-d2-59c" customClass="PrefsViewController" customModule="StandupCountdown" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Dbk-mT-q3S">
-                        <rect key="frame" x="0.0" y="0.0" width="179" height="114"/>
+                        <rect key="frame" x="0.0" y="0.0" width="179" height="89"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6W-NZ-BvZ">
-                                <rect key="frame" x="18" y="78" width="143" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Start Zoom Meeting" bezelStyle="regularSquare" imagePosition="left" inset="2" id="NVr-RD-fUB">
-                                    <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <action selector="zoomToggleValueChanged:" target="exh-d2-59c" id="DMN-Jx-eDh"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvi-ex-0op">
-                                <rect key="frame" x="38" y="20" width="121" height="22"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="3ry-io-JQa">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <connections>
-                                    <action selector="meetingIdValueChanged:" target="exh-d2-59c" id="fSl-EJ-ivX"/>
-                                </connections>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CR0-Br-D8Z">
-                                <rect key="frame" x="36" y="50" width="72" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Meeting Id:" id="LW8-5c-8Kx">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VA-AW-iEN">
+                                <rect key="frame" x="10" y="10" width="159" height="69"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f6W-NZ-BvZ">
+                                        <rect key="frame" x="-2" y="53" width="143" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Start Zoom Meeting" bezelStyle="regularSquare" imagePosition="left" inset="2" id="NVr-RD-fUB">
+                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <connections>
+                                                <action selector="zoomToggleValueChanged:" target="exh-d2-59c" id="DMN-Jx-eDh"/>
+                                            </connections>
+                                        </buttonCell>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CR0-Br-D8Z">
+                                        <rect key="frame" x="16" y="30" width="72" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Meeting Id:" id="LW8-5c-8Kx">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zvi-ex-0op">
+                                        <rect key="frame" x="18" y="0.0" width="121" height="22"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="3ry-io-JQa">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <connections>
+                                            <action selector="meetingIdValueChanged:" target="exh-d2-59c" id="fSl-EJ-ivX"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="CR0-Br-D8Z" firstAttribute="leading" secondItem="1VA-AW-iEN" secondAttribute="leading" constant="18" id="dv6-In-c8e"/>
+                                    <constraint firstItem="zvi-ex-0op" firstAttribute="leading" secondItem="1VA-AW-iEN" secondAttribute="leading" constant="18" id="oww-CC-7mf"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="1VA-AW-iEN" secondAttribute="bottom" constant="10" id="LZ9-xB-Pzv"/>
+                            <constraint firstItem="1VA-AW-iEN" firstAttribute="top" secondItem="Dbk-mT-q3S" secondAttribute="top" constant="10" id="N5s-5g-NjK"/>
+                            <constraint firstItem="1VA-AW-iEN" firstAttribute="leading" secondItem="Dbk-mT-q3S" secondAttribute="leading" constant="10" id="Y2V-e9-Jgj"/>
+                            <constraint firstAttribute="trailing" secondItem="1VA-AW-iEN" secondAttribute="trailing" constant="10" id="u42-WI-qg4"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="meetingIdTextField" destination="zvi-ex-0op" id="wxG-Zg-pg8"/>
@@ -152,10 +174,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvj-HE-4Fy" userLabel="Stack View Gong">
-                                <rect key="frame" x="50" y="45" width="351" height="78"/>
+                                <rect key="frame" x="49" y="45" width="353" height="78"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MER-HF-Jnn">
-                                        <rect key="frame" x="-2" y="0.0" width="355" height="78"/>
+                                        <rect key="frame" x="-2" y="0.0" width="357" height="78"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Hit the gong!" id="F7L-2v-7fI">
                                             <font key="font" metaFont="system" size="65"/>
                                             <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
@@ -172,10 +194,10 @@
                                 <accessibility identifier="GongStackView"/>
                             </stackView>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Alt-h4-CxA" userLabel="Stack View Timer">
-                                <rect key="frame" x="60" y="20" width="331" height="127"/>
+                                <rect key="frame" x="56" y="20" width="339" height="127"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yjT-4u-Mtw">
-                                        <rect key="frame" x="-2" y="83" width="335" height="44"/>
+                                        <rect key="frame" x="-2" y="83" width="343" height="44"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="center" title="Next standup starts in" id="EVE-UX-YRX">
                                             <font key="font" metaFont="system" size="36"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -183,7 +205,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HJL-YE-PVQ">
-                                        <rect key="frame" x="-2" y="0.0" width="335" height="75"/>
+                                        <rect key="frame" x="-2" y="0.0" width="343" height="75"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="00:00:00" id="iVV-K2-ly7">
                                             <font key="font" metaFont="system" size="63"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
