@@ -33,7 +33,7 @@ class ViewController: NSViewController {
     private func initCountdown() {
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {_ in
             if #available(OSX 10.12, *) {
-                let duration = DateInterval(start: Date(), end: Date.next(hour: 23, minute: 56)).duration
+                let duration = DateInterval(start: Date(), end: Date.next(hour: 8, minute: 6)).duration
                 let totalSeconds = Int(duration.description.split(separator: ".")[0])!
                 let seconds = String(totalSeconds % 60)
                 let minutes = String(totalSeconds / 60 % 60)
