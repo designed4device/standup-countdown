@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "static PrefsViewController.standupTimeHour.getter:PrefsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.attributeKeys">
+            </PersistentString>
+            <PersistentString
+               value = "UserDefaul">
+            </PersistentString>
+            <PersistentString
+               value = "UserDefaults.standard.attributeKeys.contains(PrefsViewController.STANDUP_TIME_HOUR_KEY)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PrefsViewController.standupTimeChanged(_:):PrefsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Calendar.current.component(.minute, from: sender.dateValue)">
+            </PersistentString>
+            <PersistentString
+               value = "Calendar.current.component(.hour, from: sender.dateValue)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

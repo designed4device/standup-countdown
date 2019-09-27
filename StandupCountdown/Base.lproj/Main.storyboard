@@ -97,12 +97,38 @@
             <objects>
                 <viewController id="exh-d2-59c" customClass="PrefsViewController" customModule="StandupCountdown" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Dbk-mT-q3S">
-                        <rect key="frame" x="0.0" y="0.0" width="179" height="89"/>
+                        <rect key="frame" x="0.0" y="0.0" width="205" height="154"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VA-AW-iEN">
-                                <rect key="frame" x="10" y="10" width="159" height="69"/>
+                                <rect key="frame" x="10" y="10" width="185" height="134"/>
                                 <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cxL-cx-n20">
+                                        <rect key="frame" x="-2" y="117" width="92" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Standup Time:" id="fnx-Ss-bhF">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="k3U-cw-0Tj">
+                                        <rect key="frame" x="0.0" y="86" width="85" height="27"/>
+                                        <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="JDs-n4-DGQ">
+                                            <font key="font" metaFont="system"/>
+                                            <date key="date" timeIntervalSinceReferenceDate="-595936440">
+                                                <!--1982-02-12 14:06:00 +0000-->
+                                            </date>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <datePickerElements key="datePickerElements" hour="YES" minute="YES"/>
+                                        </datePickerCell>
+                                        <connections>
+                                            <action selector="standupTimeChanged:" target="exh-d2-59c" id="r59-4l-Rcm"/>
+                                        </connections>
+                                    </datePicker>
+                                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="e48-Zn-5pl">
+                                        <rect key="frame" x="0.0" y="75" width="185" height="5"/>
+                                    </box>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f6W-NZ-BvZ">
                                         <rect key="frame" x="-2" y="53" width="143" height="18"/>
                                         <buttonCell key="cell" type="check" title="Start Zoom Meeting" bezelStyle="regularSquare" imagePosition="left" inset="2" id="NVr-RD-fUB">
@@ -114,7 +140,7 @@
                                         </buttonCell>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CR0-Br-D8Z">
-                                        <rect key="frame" x="16" y="30" width="72" height="17"/>
+                                        <rect key="frame" x="-2" y="30" width="72" height="17"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Meeting Id:" id="LW8-5c-8Kx">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -122,7 +148,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zvi-ex-0op">
-                                        <rect key="frame" x="18" y="0.0" width="121" height="22"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="22"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="3ry-io-JQa">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -134,15 +160,21 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="CR0-Br-D8Z" firstAttribute="leading" secondItem="1VA-AW-iEN" secondAttribute="leading" constant="18" id="dv6-In-c8e"/>
-                                    <constraint firstItem="zvi-ex-0op" firstAttribute="leading" secondItem="1VA-AW-iEN" secondAttribute="leading" constant="18" id="oww-CC-7mf"/>
+                                    <constraint firstAttribute="trailing" secondItem="e48-Zn-5pl" secondAttribute="trailing" id="RY8-Tl-HBC"/>
+                                    <constraint firstItem="e48-Zn-5pl" firstAttribute="leading" secondItem="1VA-AW-iEN" secondAttribute="leading" id="yDh-9D-Mmb"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -158,6 +190,7 @@
                     </view>
                     <connections>
                         <outlet property="meetingIdTextField" destination="zvi-ex-0op" id="wxG-Zg-pg8"/>
+                        <outlet property="standupTimeDatePicker" destination="k3U-cw-0Tj" id="uxF-gB-ncV"/>
                         <outlet property="zoomToggleButtonCell" destination="NVr-RD-fUB" id="qzN-NR-Quy"/>
                     </connections>
                 </viewController>
