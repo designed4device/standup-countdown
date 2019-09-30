@@ -158,6 +158,7 @@ class HostsService {
             + "Host: <@\(host)>\n"
             + "Scribe: <@\(scribe)>\n"
             + "Backup: \(backup1), \(backup2)\n"
+            + "https://zoom.us/j/\(PrefsViewController.meetingId)"
     }
     
     private func url(withPath: String) -> URL? {
