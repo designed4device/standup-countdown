@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D227B2662340193900057C6C /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227B2652340193900057C6C /* URLSessionExtension.swift */; };
+		D227B26923401BEF00057C6C /* HostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227B26823401BEF00057C6C /* HostsService.swift */; };
+		D227B26D23401E5100057C6C /* HostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227B26C23401E5100057C6C /* HostsResponse.swift */; };
+		D227B26F2340250700057C6C /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227B26E2340250700057C6C /* ServiceError.swift */; };
 		D2B30EC222DE920500280FC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B30EC122DE920500280FC0 /* AppDelegate.swift */; };
 		D2B30EC422DE920500280FC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B30EC322DE920500280FC0 /* ViewController.swift */; };
 		D2B30EC622DE920500280FC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2B30EC522DE920500280FC0 /* Assets.xcassets */; };
@@ -37,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D227B2652340193900057C6C /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
+		D227B26823401BEF00057C6C /* HostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostsService.swift; sourceTree = "<group>"; };
+		D227B26C23401E5100057C6C /* HostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostsResponse.swift; sourceTree = "<group>"; };
+		D227B26E2340250700057C6C /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		D2B30EBE22DE920500280FC0 /* StandupCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StandupCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2B30EC122DE920500280FC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2B30EC322DE920500280FC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +89,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D227B26723401BCE00057C6C /* HostsService */ = {
+			isa = PBXGroup;
+			children = (
+				D227B26823401BEF00057C6C /* HostsService.swift */,
+				D227B26C23401E5100057C6C /* HostsResponse.swift */,
+				D227B26E2340250700057C6C /* ServiceError.swift */,
+			);
+			path = HostsService;
+			sourceTree = "<group>";
+		};
 		D2B30EB522DE920400280FC0 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +122,7 @@
 		D2B30EC022DE920500280FC0 /* StandupCountdown */ = {
 			isa = PBXGroup;
 			children = (
+				D227B26723401BCE00057C6C /* HostsService */,
 				D2B30EC122DE920500280FC0 /* AppDelegate.swift */,
 				D2B30EC322DE920500280FC0 /* ViewController.swift */,
 				D2B30EC522DE920500280FC0 /* Assets.xcassets */,
@@ -114,6 +133,7 @@
 				D2B30EF022DEA4F900280FC0 /* DateExtension.swift */,
 				D2B30F2A22DEBCAB00280FC0 /* TimerExtension.swift */,
 				D2F5FAF0233C64510082A397 /* PrefsViewController.swift */,
+				D227B2652340193900057C6C /* URLSessionExtension.swift */,
 			);
 			path = StandupCountdown;
 			sourceTree = "<group>";
@@ -266,12 +286,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D227B26F2340250700057C6C /* ServiceError.swift in Sources */,
 				D2B30EC422DE920500280FC0 /* ViewController.swift in Sources */,
+				D227B2662340193900057C6C /* URLSessionExtension.swift in Sources */,
 				D2F5FAF1233C64510082A397 /* PrefsViewController.swift in Sources */,
 				D2B30EF122DEA4F900280FC0 /* DateExtension.swift in Sources */,
 				D2B30F2B22DEBCAB00280FC0 /* TimerExtension.swift in Sources */,
 				D2B30EC222DE920500280FC0 /* AppDelegate.swift in Sources */,
 				D2B30EEF22DEA2A400280FC0 /* StringExtension.swift in Sources */,
+				D227B26D23401E5100057C6C /* HostsResponse.swift in Sources */,
+				D227B26923401BEF00057C6C /* HostsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +461,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = StandupCountdown/StandupCountdown.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = StandupCountdown/Info.plist;
@@ -455,7 +478,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = StandupCountdown/StandupCountdown.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = StandupCountdown/Info.plist;

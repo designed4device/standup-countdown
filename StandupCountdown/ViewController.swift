@@ -13,6 +13,13 @@ class ViewController: NSViewController {
     @IBOutlet weak var countdownTextField: NSTextField!
     @IBOutlet weak var timerStackView: NSStackView!
     @IBOutlet weak var gongStackView: NSStackView!
+    @IBOutlet weak var hostsStackView: NSStackView!
+    
+    @IBOutlet weak var hostTextField: NSTextField!
+    @IBOutlet weak var scribeTextField: NSTextField!
+    @IBOutlet weak var backup1TextField: NSTextField!
+    @IBOutlet weak var backup2TextField: NSTextField!
+    
     
     private weak var countdownTimer:Timer!
     private var zoomStarted = false
@@ -21,6 +28,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        hostsStackView.isHidden = true
         initCountdown()
     }
 
@@ -43,10 +51,22 @@ class ViewController: NSViewController {
                 self.gongStackView.isHidden = true
                 self.timerStackView.isHidden = false
                 
+                if let host = HostsService.host?.name, let scribe = HostsService.scribe?.name, let backup1 = HostsService.backup1?.name, let backup2 = HostsService.backup2?.name {
+                    self.hostTextField.stringValue = host
+                    self.scribeTextField.stringValue = scribe
+                    self.backup1TextField.stringValue = backup1
+                    self.backup2TextField.stringValue = backup2
+                    if (self.hostsStackView.isHidden) { self.hostsStackView.isHidden = false }
+                } else {
+                    if (!self.hostsStackView.isHidden) { self.hostsStackView.isHidden = true }
+                    HostsService.INSTANCE.update()
+                }
+                
                 if (seconds == "0" && minutes == "0" && hours == "0") {
                     self.countdownTimer.pause(seconds: 10, resume: self.initCountdown)
                     _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.gongReminder), userInfo: nil, repeats: false)
                     self.zoomStarted = false
+                    HostsService.INSTANCE.update()
                 }
                 
                 if (PrefsViewController.zoomToggle && !self.zoomStarted && seconds == "0" && minutes == "6" && hours == "0") {
@@ -69,7 +89,7 @@ class ViewController: NSViewController {
         self.zoomStarted = true
          _ = "open /Applications/zoom.us.app".runAsCommand()
          _ = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: {_ in
-            _ = "open \"zoommtg://zoom.us/join?action=join&confno=\(PrefsViewController.meetingId)\""
+            _ = "open \"zoommtg://zoom.us/start?zc=0&confno=\(PrefsViewController.meetingId)\""
                 .runAsCommand()
         })
         _ = Timer.scheduledTimer(withTimeInterval: 10, repeats: false, block: {_ in

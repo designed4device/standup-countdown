@@ -3,6 +3,42 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "PrefsViewController.standupTimeChanged(_:):PrefsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Calendar.current.component(.minute, from: sender.dateValue)">
+            </PersistentString>
+            <PersistentString
+               value = "Calendar.current.component(.hour, from: sender.dateValue)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in NSURLSession.dataTask(with:result:):URLSessionExtension.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PrefsViewController.xpBotAuthenticationChanged(_:):PrefsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "meetingIdTextField.stringValue">
+            </PersistentString>
+            <PersistentString
+               value = "xpBotAuthenticationTextField.stringValue">
+            </PersistentString>
+            <PersistentString
+               value = "sender.stringValue as String">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static PrefsViewController.xpBotAuthentication.setter:PrefsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "xpBotAuthenticationTextField.stringValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "static PrefsViewController.standupTimeHour.getter:PrefsViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -13,17 +49,6 @@
             </PersistentString>
             <PersistentString
                value = "UserDefaults.standard.attributeKeys.contains(PrefsViewController.STANDUP_TIME_HOUR_KEY)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "PrefsViewController.standupTimeChanged(_:):PrefsViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "Calendar.current.component(.minute, from: sender.dateValue)">
-            </PersistentString>
-            <PersistentString
-               value = "Calendar.current.component(.hour, from: sender.dateValue)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
