@@ -77,9 +77,9 @@ class HostsService {
     }
     
     private var updateInProgress = false
-    func update() {
+    func updateHosts() {
         updateInProgress = true
-        guard let url = URL(string: PrefsViewController.xpBotUrl) else {
+        guard let url = url(withPath: "/hosts") else {
             return
         }
         
@@ -109,5 +109,58 @@ class HostsService {
             }
             self.updateInProgress = false
         }.resume()
+    }
+    
+    func sendHostsToSlack() {
+        let day = Calendar.current.component(.weekday, from: Date())
+        if (day == 1 || day == 7) {
+            return
+            
+        }
+        
+        guard let url = url(withPath: "/sendMessageAsBot") else {
+            return
+        }
+        
+        guard let message = slackHostsMessage() else {
+            return
+        }
+        
+        guard let body = try? encoder.encode(SlackMessage(channel: PrefsViewController.xpBotChannel, message: message)) else {
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.setValue(PrefsViewController.xpBotAuthentication, forHTTPHeaderField: "Authorization")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = body
+        request.httpMethod = "POST"
+        
+        _ = session.dataTask(with: request) { (result) in
+            switch result {
+            case .success(_,_):
+                print("sent message to slack")
+                break
+            case .failure(_):
+                print("failed to send message to slack")
+                break
+            }
+        }.resume()
+        
+    }
+    
+    private func slackHostsMessage() -> String? {
+        guard let host = HostsService.host?.id, let scribe = HostsService.scribe?.id, let backup1 = HostsService.backup1?.name, let backup2 = HostsService.backup2?.name else {
+            return nil
+        }
+        
+        return "<!here> It's stand up time! \n"
+            + "Host: <@\(host)>\n"
+            + "Scribe: <@\(scribe)>\n"
+            + "Backup: \(backup1), \(backup2)\n"
+    }
+    
+    private func url(withPath: String) -> URL? {
+        return URL(string: PrefsViewController.xpBotUrl + withPath)
     }
 }

@@ -23,6 +23,7 @@ class ViewController: NSViewController {
     
     private weak var countdownTimer:Timer!
     private var zoomStarted = false
+    private var hostsSentToSlack = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,18 +60,25 @@ class ViewController: NSViewController {
                     if (self.hostsStackView.isHidden) { self.hostsStackView.isHidden = false }
                 } else {
                     if (!self.hostsStackView.isHidden) { self.hostsStackView.isHidden = true }
-                    HostsService.INSTANCE.update()
+                    HostsService.INSTANCE.updateHosts()
                 }
                 
                 if (seconds == "0" && minutes == "0" && hours == "0") {
                     self.countdownTimer.pause(seconds: 10, resume: self.initCountdown)
                     _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.gongReminder), userInfo: nil, repeats: false)
                     self.zoomStarted = false
-                    HostsService.INSTANCE.update()
+                    self.hostsSentToSlack = false
+                    HostsService.INSTANCE.updateHosts()
                 }
                 
-                if (PrefsViewController.zoomToggle && !self.zoomStarted && seconds == "0" && minutes == "6" && hours == "0") {
-                    self.startMeeting()
+                if (seconds == "0" && minutes == "6" && hours == "0") {
+                    if (!self.hostsSentToSlack) {
+                        self.hostsSentToSlack = true
+                        HostsService.INSTANCE.sendHostsToSlack()
+                    }
+                    if (PrefsViewController.zoomToggle && !self.zoomStarted) {
+                        self.startMeeting()
+                    }
                 }
             }
         })

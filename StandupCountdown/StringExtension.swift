@@ -31,4 +31,8 @@ extension String {
             return "--- Error running command - Unable to initialize string from file data ---"
         }
     }
+    
+    subscript (i: Int) -> Character {
+        return self[index(startIndex, offsetBy: i)]
+    }
 }

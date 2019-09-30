@@ -15,6 +15,7 @@ class PrefsViewController: NSViewController {
     @IBOutlet weak var standupTimeDatePicker: NSDatePicker!
     @IBOutlet weak var xpBotUrlTextField: NSTextField!
     @IBOutlet weak var xpBotAuthenticationTextField: NSSecureTextField!
+    @IBOutlet weak var xpBotChannelTextField: NSTextField!
     
     private static let ZOOM_TOGGLE_KEY = "ZoomToggle"
     private static let MEETING_ID_KEY = "MeetingId"
@@ -22,6 +23,7 @@ class PrefsViewController: NSViewController {
     private static let STANDUP_TIME_MINUTE_KEY = "StandupTimeMinute"
     private static let XP_BOT_URL_KEY = "XpBotUrl"
     private static let XP_BOT_AUTHENTICATION_KEY = "dev.wellen.keys.xpbot"
+    private static let XP_BOT_CHANNEL_KEY = "XpBotChannel"
     
     public static var zoomToggle: Bool {
         get {
@@ -95,6 +97,12 @@ class PrefsViewController: NSViewController {
             guard status == errSecSuccess else { return print("save error") }
         }
     }
+    
+    public static var xpBotChannel: String {
+        get {
+            return UserDefaults.standard.string(forKey: PrefsViewController.XP_BOT_CHANNEL_KEY) ?? ""
+        }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,6 +117,7 @@ class PrefsViewController: NSViewController {
             .date!
         xpBotUrlTextField.stringValue = PrefsViewController.xpBotUrl
         xpBotAuthenticationTextField.stringValue = PrefsViewController.xpBotAuthentication
+        xpBotChannelTextField.stringValue = PrefsViewController.xpBotChannel
     }
     
     override var representedObject: Any? {
@@ -137,5 +146,8 @@ class PrefsViewController: NSViewController {
     @IBAction func xpBotAuthenticationChanged(_ sender: NSSecureTextField) {
         PrefsViewController.xpBotAuthentication = sender.stringValue
     }
-   
+    
+    @IBAction func xpBotChannelChanged(_ sender: NSTextField) {
+        UserDefaults.standard.set(sender.stringValue, forKey: PrefsViewController.XP_BOT_CHANNEL_KEY)
+    }
 }

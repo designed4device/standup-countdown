@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D204A14C23427C0900C97CD6 /* SlackMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D204A14B23427C0900C97CD6 /* SlackMessage.swift */; };
 		D227B2662340193900057C6C /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227B2652340193900057C6C /* URLSessionExtension.swift */; };
 		D227B26923401BEF00057C6C /* HostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227B26823401BEF00057C6C /* HostsService.swift */; };
 		D227B26D23401E5100057C6C /* HostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D227B26C23401E5100057C6C /* HostsResponse.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D204A14B23427C0900C97CD6 /* SlackMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlackMessage.swift; sourceTree = "<group>"; };
 		D227B2652340193900057C6C /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
 		D227B26823401BEF00057C6C /* HostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostsService.swift; sourceTree = "<group>"; };
 		D227B26C23401E5100057C6C /* HostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostsResponse.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				D227B26823401BEF00057C6C /* HostsService.swift */,
 				D227B26C23401E5100057C6C /* HostsResponse.swift */,
 				D227B26E2340250700057C6C /* ServiceError.swift */,
+				D204A14B23427C0900C97CD6 /* SlackMessage.swift */,
 			);
 			path = HostsService;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D227B26F2340250700057C6C /* ServiceError.swift in Sources */,
+				D204A14C23427C0900C97CD6 /* SlackMessage.swift in Sources */,
 				D2B30EC422DE920500280FC0 /* ViewController.swift in Sources */,
 				D227B2662340193900057C6C /* URLSessionExtension.swift in Sources */,
 				D2F5FAF1233C64510082A397 /* PrefsViewController.swift in Sources */,
