@@ -63,22 +63,22 @@ class ViewController: NSViewController {
                     HostsService.INSTANCE.updateHosts()
                 }
                 
+                //show gong reminder
                 if (seconds == "0" && minutes == "0" && hours == "0") {
-                    self.countdownTimer.pause(seconds: 10, resume: self.initCountdown)
+                    self.countdownTimer.pause(minutes: 10, resume: self.initCountdown)
                     _ = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.gongReminder), userInfo: nil, repeats: false)
                     self.zoomStarted = false
                     self.hostsSentToSlack = false
                     HostsService.INSTANCE.updateHosts()
                 }
                 
-                if (seconds == "0" && minutes == "6" && hours == "0") {
-                    if (!self.hostsSentToSlack) {
+                if (!self.hostsSentToSlack && seconds == "0" && minutes == "11" && hours == "0") {
                         self.hostsSentToSlack = true
                         HostsService.INSTANCE.sendHostsToSlack()
-                    }
-                    if (PrefsViewController.zoomToggle && !self.zoomStarted) {
+                }
+                
+                if (PrefsViewController.zoomToggle && !self.zoomStarted && seconds == "0" && minutes == "6" && hours == "0") {
                         self.startMeeting()
-                    }
                 }
             }
         })

@@ -9,10 +9,10 @@
 import Foundation
 
 extension Timer {
-    func pause(seconds: Double, resume:@escaping () -> Void) {
+    func pause(seconds: Double = 0, minutes: Double = 0, resume:@escaping () -> Void) {
         if (self.isValid) {
             self.invalidate()
-            let timer = Timer(timeInterval: seconds, repeats: false, block: { timer in
+            let timer = Timer(timeInterval: (seconds + (minutes * 60)), repeats: false, block: { timer in
                 resume()
             })
             RunLoop.current.add(timer, forMode: .default)
