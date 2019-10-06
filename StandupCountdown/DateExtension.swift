@@ -21,26 +21,20 @@ extension Date {
         return (day != 1 && day != 7)
     }
     
-    static func next(hour: Int = 0, minute: Int = 0, second: Int = 0) -> Date {
-        let now = Date()
-        let today = DateComponents(
-            calendar: Calendar.current,
-            year: Calendar.current.component(.year, from: now),
-            month: Calendar.current.component(.month, from: now),
-            day: Calendar.current.component(.day, from: now),
-            hour: hour,
-            minute: minute,
-            second: second)
-            .date!
-        
-        return ((today > now) ? today : DateComponents(
-            calendar: Calendar.current,
-            year: Calendar.current.component(.year, from: now.plus(days: 1)),
-            month: Calendar.current.component(.month, from: now.plus(days: 1)),
-            day: Calendar.current.component(.day, from: now.plus(days: 1)),
-            hour: hour,
-            minute: minute,
-            second: second)
-            .date!)
+    static func next(after: Date, hour: Int = 0, minute: Int = 0, second: Int = 0) -> Date {
+        var i: Double = 0
+        while true {
+            let next = DateComponents(
+                calendar: Calendar.current,
+                year: Calendar.current.component(.year, from: after.plus(days: i)),
+                month: Calendar.current.component(.month, from: after.plus(days: i)),
+                day: Calendar.current.component(.day, from: after.plus(days: i)),
+                hour: hour,
+                minute: minute,
+                second: second)
+                .date!
+            if (next > after && next.isWeekday()) { return next }
+            i += 1
+        }
     }
 }

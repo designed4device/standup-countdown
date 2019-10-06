@@ -15,10 +15,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        let now = Date()
         
         //hide the application after standup starts
         let hideTimer = Timer(
-            fire: Date.next(hour: 8, minute: 6, second: 10),
+            fire: Date.next(after: now, hour: 8, minute: 6, second: 10),
             interval: 60 * 60 * 24,
             repeats: true,
             block: {_ in
@@ -28,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //unhide the application after standup ends
         let unhideTimer = Timer(
-            fire: Date.next(hour: 8, minute: 16),
+            fire: Date.next(after: now, hour: 8, minute: 16),
             interval: 60 * 60 * 24,
             repeats: true,
             block: {_ in
@@ -39,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         //bring application to front before standup starts
         let activateTimer = Timer(
-            fire: Date.next(hour: 8),
+            fire: Date.next(after: now, hour: 8),
             interval: 60 * 60 * 24,
             repeats: true,
             block: {_ in

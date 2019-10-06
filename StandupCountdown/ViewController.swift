@@ -43,7 +43,7 @@ class ViewController: NSViewController {
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {_ in
             if #available(OSX 10.12, *) {
                 let now = Date()
-                let duration = DateInterval(start: now, end: Date.next(hour: PrefsViewController.standupTimeHour, minute: PrefsViewController.standupTimeMinute)).duration
+                let duration = DateInterval(start: now, end: Date.next(after: now, hour: PrefsViewController.standupTimeHour, minute: PrefsViewController.standupTimeMinute)).duration
                 let totalSeconds = Int(duration.description.split(separator: ".")[0])!
                 let seconds = String(totalSeconds % 60)
                 let minutes = String(totalSeconds / 60 % 60)
