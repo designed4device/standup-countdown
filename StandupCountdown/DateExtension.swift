@@ -16,6 +16,11 @@ extension Date {
         )
     }
     
+    func isWeekday() -> Bool {
+        let day = Calendar.current.component(.weekday, from: self)
+        return (day != 1 && day != 7)
+    }
+    
     static func next(hour: Int = 0, minute: Int = 0, second: Int = 0) -> Date {
         let now = Date()
         let today = DateComponents(

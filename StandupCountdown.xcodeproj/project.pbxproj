@@ -21,6 +21,7 @@
 		D2B30EEF22DEA2A400280FC0 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B30EEE22DEA2A400280FC0 /* StringExtension.swift */; };
 		D2B30EF122DEA4F900280FC0 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B30EF022DEA4F900280FC0 /* DateExtension.swift */; };
 		D2B30F2B22DEBCAB00280FC0 /* TimerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B30F2A22DEBCAB00280FC0 /* TimerExtension.swift */; };
+		D2E60DDE234A6C11000B599A /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E60DDD234A6C11000B599A /* DateExtensionTests.swift */; };
 		D2F5FAF1233C64510082A397 /* PrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5FAF0233C64510082A397 /* PrefsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		D2B30EEE22DEA2A400280FC0 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D2B30EF022DEA4F900280FC0 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		D2B30F2A22DEBCAB00280FC0 /* TimerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerExtension.swift; sourceTree = "<group>"; };
+		D2E60DDD234A6C11000B599A /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		D2F5FAF0233C64510082A397 /* PrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			children = (
 				D2B30ED422DE920500280FC0 /* StandupCountdownTests.swift */,
 				D2B30ED622DE920500280FC0 /* Info.plist */,
+				D2E60DDD234A6C11000B599A /* DateExtensionTests.swift */,
 			);
 			path = StandupCountdownTests;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2B30ED522DE920500280FC0 /* StandupCountdownTests.swift in Sources */,
+				D2E60DDE234A6C11000B599A /* DateExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

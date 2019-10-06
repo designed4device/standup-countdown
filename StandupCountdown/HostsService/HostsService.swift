@@ -112,12 +112,6 @@ class HostsService {
     }
     
     func sendHostsToSlack() {
-        let day = Calendar.current.component(.weekday, from: Date())
-        if (day == 1 || day == 7) {
-            return
-            
-        }
-        
         guard let url = url(withPath: "/sendMessageAsBot") else {
             return
         }

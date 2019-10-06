@@ -42,7 +42,8 @@ class ViewController: NSViewController {
     private func initCountdown() {
         countdownTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {_ in
             if #available(OSX 10.12, *) {
-                let duration = DateInterval(start: Date(), end: Date.next(hour: PrefsViewController.standupTimeHour, minute: PrefsViewController.standupTimeMinute)).duration
+                let now = Date()
+                let duration = DateInterval(start: now, end: Date.next(hour: PrefsViewController.standupTimeHour, minute: PrefsViewController.standupTimeMinute)).duration
                 let totalSeconds = Int(duration.description.split(separator: ".")[0])!
                 let seconds = String(totalSeconds % 60)
                 let minutes = String(totalSeconds / 60 % 60)
@@ -72,7 +73,7 @@ class ViewController: NSViewController {
                     HostsService.INSTANCE.updateHosts()
                 }
                 
-                if (!self.hostsSentToSlack && seconds == "0" && minutes == "11" && hours == "0") {
+                if (!self.hostsSentToSlack && seconds == "0" && minutes == "11" && hours == "0" && now.isWeekday()) {
                         self.hostsSentToSlack = true
                         HostsService.INSTANCE.sendHostsToSlack()
                 }
