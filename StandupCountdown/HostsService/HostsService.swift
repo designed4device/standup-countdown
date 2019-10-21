@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppKit
 
 class HostsService {
     private let session = URLSession.shared
@@ -77,6 +78,7 @@ class HostsService {
     }
     
     private var updateInProgress = false
+    private var updateRetryCount = 0
     func updateHosts() {
         updateInProgress = true
         guard let url = url(withPath: "/hosts") else {
@@ -102,15 +104,25 @@ class HostsService {
                 } catch {
                     print("failed to decode and save hosts data")
                 }
+                self.updateRetryCount = 0
                 break
             case .failure(_):
                 print("failed to get hosts data")
+                if (self.updateRetryCount < 20) {
+                    sleep(UInt32(self.updateRetryCount))
+                    self.updateHosts()
+                    self.updateRetryCount += 1
+                } else {
+                    print("too tired to retry anymore")
+                    self.updateRetryCount = 0
+                }
                 break
             }
             self.updateInProgress = false
         }.resume()
     }
     
+    private var sendRetryCount = 0
     func sendHostsToSlack() {
         guard let url = url(withPath: "/sendMessageAsBot") else {
             return
@@ -134,9 +146,18 @@ class HostsService {
             switch result {
             case .success(_,_):
                 print("sent message to slack")
+                self.sendRetryCount = 0
                 break
             case .failure(_):
                 print("failed to send message to slack")
+                if (self.sendRetryCount < 20) {
+                    sleep(UInt32(self.sendRetryCount))
+                    self.sendHostsToSlack()
+                    self.sendRetryCount += 1
+                } else {
+                    print("too tired to retry anymore")
+                    self.sendRetryCount = 0
+                }
                 break
             }
         }.resume()

@@ -17,9 +17,14 @@ extension URLSession {
                 result(.failure(error))
                 return
             }
-            guard let response = response, let data = data else {
+            guard let response = response as? HTTPURLResponse, let data = data else {
                 let error = NSError(domain: "error", code: 0, userInfo: nil)
                 result(.failure(error))
+                return
+            }
+            if (response.statusCode < 200 || response.statusCode > 299) {
+                print("non 200 response")
+                result(.failure(NSError(domain: "error", code: 0, userInfo: nil)))
                 return
             }
             result(.success((response, data)))

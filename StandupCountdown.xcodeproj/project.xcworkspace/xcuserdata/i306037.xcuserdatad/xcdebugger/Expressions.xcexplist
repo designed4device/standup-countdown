@@ -15,6 +15,11 @@
       </ContextState>
       <ContextState
          contextName = "closure #1 in NSURLSession.dataTask(with:result:):URLSessionExtension.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.statusCode">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "PrefsViewController.xpBotAuthenticationChanged(_:):PrefsViewController.swift">
